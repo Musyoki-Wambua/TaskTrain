@@ -621,3 +621,725 @@ Completed 500 Internal Server Error in 1ms (Allocations: 787)
 TypeError (no implicit conversion of Time into String):
   
 app/controllers/application_controller.rb:23:in `session_expired?'
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 11:56:28 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20230323082551_create_todos.rb
+
+
+):
+  
+activerecord (7.0.4.3) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4.3) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4.3) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.4.3) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": "HIGH"
+}
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTodos (20230323082551)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "todos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "description" text NOT NULL, "status" integer DEFAULT 0 NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d94154aa95"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_todos_on_user_id" ON "todos" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230323082551"]]
+  [1m[36mTRANSACTION (152.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 11:56:50 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": "HIGH"
+}
+Processing by TodosController#create as */*
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 837)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 12:07:59 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Processing by TodosController#create as */*
+Completed 500 Internal Server Error in 3ms (Allocations: 781)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 12:08:06 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Processing by TodosController#create as */*
+Completed 500 Internal Server Error in 2ms (Allocations: 767)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 12:15:39 +0300
+  
+SyntaxError (/home/user/Development/Code/phase-4/TaskTrain/api/app/controllers/todos_controller.rb:15: syntax error, unexpected ',', expecting `end'
+...a: {info: "Invalid Priority"}), status: :unprocessable_entity
+...                              ^
+):
+  
+app/controllers/todos_controller.rb:15: syntax error, unexpected ',', expecting `end'
+app/controllers/todos_controller.rb:15: syntax error, unexpected ',', expecting `end'
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 12:18:15 +0300
+  
+NameError (uninitialized constant TodosController::ArguementError):
+  
+app/controllers/todos_controller.rb:3:in `<class:TodosController>'
+app/controllers/todos_controller.rb:1:in `<main>'
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 12:20:04 +0300
+  
+NameError (uninitialized constant TodosController::ArguementError):
+  
+app/controllers/todos_controller.rb:3:in `<class:TodosController>'
+app/controllers/todos_controller.rb:1:in `<main>'
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 12:20:22 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Processing by TodosController#create as */*
+Completed 500 Internal Server Error in 1ms (Allocations: 781)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 12:21:31 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Processing by TodosController#create as */*
+Completed 500 Internal Server Error in 1ms (Allocations: 767)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 12:22:10 +0300
+  
+NoMethodError (undefined method `cookies' for ActionController:Module):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/todos_controller.rb:1:in `<main>'
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 12:22:49 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Processing by TodosController#create as */*
+Completed 500 Internal Server Error in 1ms (Allocations: 781)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 12:23:49 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Processing by TodosController#create as */*
+Completed 500 Internal Server Error in 1ms (Allocations: 781)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 12:31:12 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Processing by TodosController#create as */*
+Completed 500 Internal Server Error in 388ms (Allocations: 1683)
+
+
+  
+NoMethodError (undefined method `from_now' for Time:Class):
+  
+app/controllers/application_controller.rb:22:in `session_expired?'
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 12:32:04 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Processing by TodosController#create as */*
+Completed 500 Internal Server Error in 138ms (Allocations: 781)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 12:32:42 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Processing by TodosController#create as */*
+Completed 500 Internal Server Error in 1ms (Allocations: 781)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:26:in `session_expired?'
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 12:33:09 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Processing by TodosController#create as */*
+Completed 500 Internal Server Error in 1ms (Allocations: 781)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:26:in `session_expired?'
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 12:34:23 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Processing by TodosController#create as */*
+Completed 500 Internal Server Error in 1ms (Allocations: 767)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:26:in `session_expired?'
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:13:58 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Processing by TodosController#create as */*
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 0.0ms | Allocations: 2719)
+
+
+  
+NameError (undefined local variable or method `exeption' for #<TodosController:0x00000000008ae8>):
+  
+app/controllers/application_controller.rb:41:in `standard_error'
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:15:59 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Processing by TodosController#create as */*
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | Allocations: 844)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:18:36 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Processing by TodosController#create as */*
+Filter chain halted as :session_expired? rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | Allocations: 447)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:18:59 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Processing by TodosController#create as */*
+Filter chain halted as :session_expired? rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | Allocations: 403)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:19:01 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Processing by TodosController#create as */*
+Filter chain halted as :session_expired? rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.4ms | Allocations: 372)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:19:02 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Processing by TodosController#create as */*
+Filter chain halted as :session_expired? rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | Allocations: 375)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:19:47 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Processing by TodosController#create as */*
+Filter chain halted as :session_expired? rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | Allocations: 399)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-23 13:20:26 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "title", "Add Todo Endpoint", 
+  "description": "Make sure to create a todo endpoint!",
+  "priority": 2
+}
+Processing by UsersController#login as */*
+Completed 422 Unprocessable Entity in 299ms (Views: 0.8ms | Allocations: 18862)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-03-23 13:21:57 +0300
+Processing by UsersController#register as */*
+  Parameters: {"username"=>"musyoki", "password"=>"[FILTERED]", "user"=>{"username"=>"musyoki"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: register, request: #<ActionDispatch::Request:0x000055913c0b5248>, params: {"username"=>"musyoki", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"register", "user"=>{"username"=>"musyoki"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "musyoki"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "musyoki"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `register'
+Completed 422 Unprocessable Entity in 397ms (Views: 26.2ms | ActiveRecord: 2.1ms | Allocations: 22472)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-03-23 13:22:29 +0300
+Processing by UsersController#register as */*
+  Parameters: {"username"=>"musyoki", "email"=>"joseph@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"musyoki", "email"=>"joseph@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: register, request: #<ActionDispatch::Request:0x00007ff1984caf68>, params: {"username"=>"musyoki", "email"=>"joseph@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"register", "user"=>{"username"=>"musyoki", "email"=>"joseph@gmail.com"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "musyoki"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joseph@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "musyoki"], ["email", "joseph@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-03-23 10:22:30.161271"], ["updated_at", "2023-03-23 10:22:30.161271"]]
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mTRANSACTION (105.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `register'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "musyoki"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `register'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "joseph@gmail.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `register'
+Completed 201 Created in 368ms (Views: 1.1ms | ActiveRecord: 106.6ms | Allocations: 5000)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-23 13:22:41 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"musyoki", "email"=>"joseph@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"musyoki", "email"=>"joseph@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007ff198653858>, params: {"username"=>"musyoki", "email"=>"joseph@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"musyoki", "email"=>"joseph@gmail.com"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007ff198653858>, params: {"username"=>"musyoki", "email"=>"joseph@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"musyoki", "email"=>"joseph@gmail.com"}} }[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'musyoki' OR email = 'joseph@gmail.com') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007ff198653858>, params: {"username"=>"musyoki", "email"=>"joseph@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"musyoki", "email"=>"joseph@gmail.com"}} }[0m
+Completed 200 OK in 230ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 1663)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:22:54 +0300
+Processing by TodosController#create as */*
+  Parameters: {"username"=>"musyoki", "email"=>"joseph@gmail.com", "password"=>"[FILTERED]", "todo"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `user'
+[31mUnpermitted parameters: :username, :email, :password, :todo. Context: { controller: TodosController, action: create, request: #<ActionDispatch::Request:0x00007ff1aca594e8>, params: {"username"=>"musyoki", "email"=>"joseph@gmail.com", "password"=>"[FILTERED]", "controller"=>"todos", "action"=>"create", "todo"=>{}} }[0m
+Completed 422 Unprocessable Entity in 134ms (Views: 2.4ms | ActiveRecord: 1.5ms | Allocations: 25481)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:24:09 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Finish up the frontend for this project", "description"=>"Do the code for React", "priority"=>2, "todo"=>{"title"=>"Finish up the frontend for this project", "description"=>"Do the code for React", "priority"=>2}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `user'
+[31mUnpermitted parameters: :priority, :todo. Context: { controller: TodosController, action: create, request: #<ActionDispatch::Request:0x00007ff1940bfa58>, params: {"title"=>"Finish up the frontend for this project", "description"=>"Do the code for React", "priority"=>2, "controller"=>"todos", "action"=>"create", "todo"=>{"title"=>"Finish up the frontend for this project", "description"=>"Do the code for React", "priority"=>2}} }[0m
+Completed 422 Unprocessable Entity in 15ms (Views: 5.0ms | ActiveRecord: 0.3ms | Allocations: 2043)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:24:24 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `user'
+[31mUnpermitted parameters: :priority, :todo. Context: { controller: TodosController, action: create, request: #<ActionDispatch::Request:0x00007ff1acdece48>, params: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "controller"=>"todos", "action"=>"create", "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}} }[0m
+Completed 422 Unprocessable Entity in 5ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 1652)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:30:03 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Finish up this project", "description"=>"Do the code for React gdgdgdgdg", "priority"=>2, "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React gdgdgdgdg", "priority"=>2}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `user'
+[31mUnpermitted parameters: :priority, :todo. Context: { controller: TodosController, action: create, request: #<ActionDispatch::Request:0x00007ff18c0280e8>, params: {"title"=>"Finish up this project", "description"=>"Do the code for React gdgdgdgdg", "priority"=>2, "controller"=>"todos", "action"=>"create", "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React gdgdgdgdg", "priority"=>2}} }[0m
+Completed 422 Unprocessable Entity in 5ms (Views: 1.1ms | ActiveRecord: 0.5ms | Allocations: 1786)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:30:11 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Finish up this project", "description"=>"Do the code for React gdgdgdgbvbvnvnvvndg", "priority"=>2, "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React gdgdgdgbvbvnvnvvndg", "priority"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `user'
+[31mUnpermitted parameters: :priority, :todo. Context: { controller: TodosController, action: create, request: #<ActionDispatch::Request:0x00007ff1a001fce0>, params: {"title"=>"Finish up this project", "description"=>"Do the code for React gdgdgdgbvbvnvnvvndg", "priority"=>2, "controller"=>"todos", "action"=>"create", "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React gdgdgdgbvbvnvnvvndg", "priority"=>2}} }[0m
+Completed 422 Unprocessable Entity in 4ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 1638)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:32:39 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Finish up this project", "description"=>"Do the code for React gdgdgdgbvbvnvnvvndg", "priority"=>2, "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React gdgdgdgbvbvnvnvvndg", "priority"=>2}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `user'
+[31mUnpermitted parameters: :priority, :todo. Context: { controller: TodosController, action: create, request: #<ActionDispatch::Request:0x00007ff19c325330>, params: {"title"=>"Finish up this project", "description"=>"Do the code for React gdgdgdgbvbvnvnvvndg", "priority"=>2, "controller"=>"todos", "action"=>"create", "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React gdgdgdgbvbvnvnvvndg", "priority"=>2}} }[0m
+Completed 422 Unprocessable Entity in 45ms (Views: 0.9ms | ActiveRecord: 1.7ms | Allocations: 6919)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:32:51 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `user'
+[31mUnpermitted parameters: :priority, :todo. Context: { controller: TodosController, action: create, request: #<ActionDispatch::Request:0x00007ff1940da088>, params: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "controller"=>"todos", "action"=>"create", "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}} }[0m
+Completed 422 Unprocessable Entity in 7ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 1643)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:34:50 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `user'
+[31mUnpermitted parameter: :todo. Context: { controller: TodosController, action: create, request: #<ActionDispatch::Request:0x00007ff1acbf9a00>, params: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "controller"=>"todos", "action"=>"create", "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:5:in `create'
+  [1m[36mTodo Create (0.4ms)[0m  [1m[32mINSERT INTO "todos" ("title", "description", "status", "priority", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Finish up this project"], ["description", "Do the code for React"], ["status", 0], ["priority", 2], ["user_id", 2], ["created_at", "2023-03-23 10:34:51.011234"], ["updated_at", "2023-03-23 10:34:51.011234"]]
+  ↳ app/controllers/todos_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (139.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:5:in `create'
+Completed 422 Unprocessable Entity in 161ms (Views: 3.3ms | ActiveRecord: 141.2ms | Allocations: 8535)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:36:16 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `user'
+[31mUnpermitted parameter: :todo. Context: { controller: TodosController, action: create, request: #<ActionDispatch::Request:0x00007ff1acb3ed68>, params: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "controller"=>"todos", "action"=>"create", "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:5:in `create'
+  [1m[36mTodo Create (0.5ms)[0m  [1m[32mINSERT INTO "todos" ("title", "description", "status", "priority", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Finish up this project"], ["description", "Do the code for React"], ["status", 0], ["priority", 2], ["user_id", 2], ["created_at", "2023-03-23 10:36:16.916943"], ["updated_at", "2023-03-23 10:36:16.916943"]]
+  ↳ app/controllers/todos_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (119.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:5:in `create'
+Completed 422 Unprocessable Entity in 136ms (Views: 3.9ms | ActiveRecord: 121.0ms | Allocations: 3237)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:37:36 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `user'
+[31mUnpermitted parameter: :todo. Context: { controller: TodosController, action: create, request: #<ActionDispatch::Request:0x00007ff17c0107f0>, params: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "controller"=>"todos", "action"=>"create", "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:5:in `create'
+  [1m[36mTodo Create (0.4ms)[0m  [1m[32mINSERT INTO "todos" ("title", "description", "status", "priority", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Finish up this project"], ["description", "Do the code for React"], ["status", 0], ["priority", 2], ["user_id", 2], ["created_at", "2023-03-23 10:37:36.243752"], ["updated_at", "2023-03-23 10:37:36.243752"]]
+  ↳ app/controllers/todos_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (124.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:5:in `create'
+Completed 422 Unprocessable Entity in 134ms (Views: 0.7ms | ActiveRecord: 125.3ms | Allocations: 3230)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:37:58 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `user'
+Completed 422 Unprocessable Entity in 14ms (Views: 0.8ms | ActiveRecord: 1.3ms | Allocations: 6340)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:38:41 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `user'
+[31mUnpermitted parameter: :todo. Context: { controller: TodosController, action: create, request: #<ActionDispatch::Request:0x00007ff19418d098>, params: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "controller"=>"todos", "action"=>"create", "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:5:in `create'
+  [1m[36mTodo Create (0.4ms)[0m  [1m[32mINSERT INTO "todos" ("title", "description", "status", "priority", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Finish up this project"], ["description", "Do the code for React"], ["status", 0], ["priority", 2], ["user_id", 2], ["created_at", "2023-03-23 10:38:41.351928"], ["updated_at", "2023-03-23 10:38:41.351928"]]
+  ↳ app/controllers/todos_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (165.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:5:in `create'
+Completed 422 Unprocessable Entity in 196ms (Views: 4.0ms | ActiveRecord: 167.5ms | Allocations: 8509)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:39:18 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `user'
+[31mUnpermitted parameter: :todo. Context: { controller: TodosController, action: create, request: #<ActionDispatch::Request:0x00007ff19901bc78>, params: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "controller"=>"todos", "action"=>"create", "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:5:in `create'
+  [1m[36mTodo Create (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("title", "description", "status", "priority", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Finish up this project"], ["description", "Do the code for React"], ["status", 0], ["priority", 2], ["user_id", 2], ["created_at", "2023-03-23 10:39:18.617109"], ["updated_at", "2023-03-23 10:39:18.617109"]]
+  ↳ app/controllers/todos_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (131.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:5:in `create'
+Completed 422 Unprocessable Entity in 180ms (Views: 0.8ms | ActiveRecord: 134.2ms | Allocations: 10072)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 13:39:44 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `user'
+[31mUnpermitted parameter: :todo. Context: { controller: TodosController, action: create, request: #<ActionDispatch::Request:0x00007ff1901b3580>, params: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "controller"=>"todos", "action"=>"create", "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:5:in `create'
+  [1m[36mTodo Create (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("title", "description", "status", "priority", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Finish up this project"], ["description", "Do the code for React"], ["status", 0], ["priority", 2], ["user_id", 2], ["created_at", "2023-03-23 10:39:44.417713"], ["updated_at", "2023-03-23 10:39:44.417713"]]
+  ↳ app/controllers/todos_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (135.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:5:in `create'
+Completed 201 Created in 161ms (Views: 1.8ms | ActiveRecord: 137.9ms | Allocations: 8217)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-23 14:09:48 +0300
+Processing by TodosController#index as */*
+  Parameters: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `user'
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/application_controller.rb:7:in `app_response'
+Completed 200 OK in 17ms (Views: 6.8ms | ActiveRecord: 1.8ms | Allocations: 2648)
+
+
+Started DELETE "/todos/6" for 127.0.0.1 at 2023-03-23 14:10:23 +0300
+Processing by TodosController#destroy as */*
+  Parameters: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "id"=>"6", "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `user'
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = ? AND "todos"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:24:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:24:in `destroy'
+  [1m[36mTodo Destroy (0.4ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/todos_controller.rb:24:in `destroy'
+  [1m[36mTRANSACTION (126.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:24:in `destroy'
+Completed 204 No Content in 138ms (Views: 0.6ms | ActiveRecord: 127.7ms | Allocations: 2833)
+
+
+Started GET "/todos/6" for 127.0.0.1 at 2023-03-23 14:10:31 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/todos/6"):
+  
+Started GET "/todos" for 127.0.0.1 at 2023-03-23 14:10:41 +0300
+Processing by TodosController#index as */*
+  Parameters: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:36:in `user'
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/application_controller.rb:7:in `app_response'
+Completed 200 OK in 6ms (Views: 3.0ms | ActiveRecord: 0.3ms | Allocations: 2123)
+
+
+Started DELETE "/users/logout" for 127.0.0.1 at 2023-03-23 14:11:10 +0300
+Processing by UsersController#logout as */*
+  Parameters: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "user"=>{}}
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 328)
+
+
+Started DELETE "/todos" for 127.0.0.1 at 2023-03-23 14:11:41 +0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/todos"):
+  
+Started GET "/todos" for 127.0.0.1 at 2023-03-23 14:11:46 +0300
+Processing by TodosController#index as */*
+  Parameters: {"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2, "todo"=>{"title"=>"Finish up this project", "description"=>"Do the code for React", "priority"=>2}}
+Filter chain halted as :session_expired? rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 372)
+
+
