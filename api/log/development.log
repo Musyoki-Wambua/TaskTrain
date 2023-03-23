@@ -450,3 +450,174 @@ Processing by UsersController#register as */*
 Completed 201 Created in 376ms (Views: 1.3ms | ActiveRecord: 122.1ms | Allocations: 4691)
 
 
+Started GET "/me" for 127.0.0.1 at 2023-03-22 14:14:34 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/me"):
+  
+Started GET "/user/login/check" for 127.0.0.1 at 2023-03-23 10:49:48 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/user/login/check"):
+  
+Started GET "/user/login/check" for 127.0.0.1 at 2023-03-23 10:50:30 +0300
+  
+SyntaxError (/home/user/Development/Code/phase-4/TaskTrain/api/app/controllers/users_controller.rb:35: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/users_controller.rb:35: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/users_controller.rb:35: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/user/login/check" for 127.0.0.1 at 2023-03-23 10:52:38 +0300
+  
+SyntaxError (/home/user/Development/Code/phase-4/TaskTrain/api/app/controllers/users_controller.rb:35: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/users_controller.rb:35: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/users_controller.rb:35: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/user/login/check" for 127.0.0.1 at 2023-03-23 10:53:42 +0300
+Processing by UsersController#check_login_status as */*
+Completed 500 Internal Server Error in 5ms (Allocations: 840)
+
+
+  
+TypeError (Time can't be coerced into Integer):
+  
+app/controllers/application_controller.rb:23:in `-'
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started GET "/user/login/check" for 127.0.0.1 at 2023-03-23 10:54:01 +0300
+Processing by UsersController#check_login_status as */*
+Completed 500 Internal Server Error in 2ms (Allocations: 786)
+
+
+  
+TypeError (Time can't be coerced into Integer):
+  
+app/controllers/application_controller.rb:23:in `-'
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started GET "/user/login/check" for 127.0.0.1 at 2023-03-23 10:57:07 +0300
+Processing by UsersController#check_login_status as */*
+Completed 500 Internal Server Error in 2ms (Allocations: 786)
+
+
+  
+TypeError (Time can't be coerced into Integer):
+  
+app/controllers/application_controller.rb:23:in `-'
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started GET "/user/login/check" for 127.0.0.1 at 2023-03-23 10:57:54 +0300
+Processing by UsersController#check_login_status as */*
+Completed 500 Internal Server Error in 2ms (Allocations: 786)
+
+
+  
+TypeError (Time can't be coerced into Integer):
+  
+app/controllers/application_controller.rb:23:in `-'
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started GET "/user/login/check" for 127.0.0.1 at 2023-03-23 10:59:28 +0300
+Processing by UsersController#check_login_status as */*
+Completed 500 Internal Server Error in 4ms (Allocations: 1733)
+
+
+  
+NoMethodError (undefined method `parsesession' for Time:Class):
+  
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started GET "/user/login/check" for 127.0.0.1 at 2023-03-23 10:59:45 +0300
+Processing by UsersController#check_login_status as */*
+Completed 500 Internal Server Error in 1ms (Allocations: 787)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started GET "/user/login/check" for 127.0.0.1 at 2023-03-23 11:00:41 +0300
+Processing by UsersController#check_login_status as */*
+Completed 500 Internal Server Error in 1ms (Allocations: 767)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started GET "/user/login/check" for 127.0.0.1 at 2023-03-23 11:01:20 +0300
+Processing by UsersController#check_login_status as */*
+Completed 500 Internal Server Error in 1ms (Allocations: 767)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started GET "/user/login/check" for 127.0.0.1 at 2023-03-23 11:03:42 +0300
+Processing by UsersController#check_login_status as */*
+Completed 500 Internal Server Error in 1ms (Allocations: 787)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started GET "/user/login/check" for 127.0.0.1 at 2023-03-23 11:04:30 +0300
+Processing by UsersController#check_login_status as */*
+Completed 500 Internal Server Error in 1ms (Allocations: 787)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started GET "/user/login/check" for 127.0.0.1 at 2023-03-23 11:08:23 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (7.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#check_login_status as */*
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.0ms | Allocations: 845)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started GET "/user/login/check" for 127.0.0.1 at 2023-03-23 11:20:58 +0300
+Processing by UsersController#check_login_status as */*
+Completed 500 Internal Server Error in 4ms (Allocations: 768)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started GET "/user/login/check" for 127.0.0.1 at 2023-03-23 11:23:14 +0300
+Processing by UsersController#check_login_status as */*
+Completed 500 Internal Server Error in 1ms (Allocations: 787)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started GET "/user/login/check" for 127.0.0.1 at 2023-03-23 11:23:49 +0300
+Processing by UsersController#check_login_status as */*
+Completed 500 Internal Server Error in 1ms (Allocations: 787)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started GET "/user/login/check" for 127.0.0.1 at 2023-03-23 11:24:07 +0300
+Processing by UsersController#check_login_status as */*
+Completed 500 Internal Server Error in 1ms (Allocations: 787)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:23:in `session_expired?'
+Started GET "/user/login/check" for 127.0.0.1 at 2023-03-23 11:24:23 +0300
+Processing by UsersController#check_login_status as */*
+Completed 500 Internal Server Error in 1ms (Allocations: 787)
+
+
+  
+TypeError (no implicit conversion of Time into String):
+  
+app/controllers/application_controller.rb:23:in `session_expired?'
