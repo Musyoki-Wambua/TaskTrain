@@ -1,23 +1,6 @@
 class TodosController < ApplicationController
-    before_action :session_expired?
-
-    # def create 
-    #     if params[:uid]
-    #         user = User.find_by(id: params[:id])
-    #         if user 
-    #             todo = Todo.create(todo_params)
-    #             if todo.valid?
-    #                 app_response(status: :created, data: todo)
-    #             else
-    #                 app_response(status: :unprocessable_entity, data: todo.errors, message: 'failed')
-    #             end
-    #         else 
-    #             render json: { message: "Not authorized" }, status: :unauthorized
-    #         end
-    #     else 
-    #         render json: { message: "Not authorized" }, status: :unauthorized
-    #     end
-    # end
+    # before_action :session_expired?
+    before_action :verify_auth
 
     def create
         todo = user.todos.create(todo_params)
@@ -31,9 +14,9 @@ class TodosController < ApplicationController
     def update
         todo = user.todos.find(params[:id]).update(todo_params)
         if todo
-            app_response(data: { info: 'updated todo successfully' })
+            app_response(message: { info: 'updated todo successfully' }, data: todo)
         else
-            app_response(message: 'failed', data: { info: 'something went wrong. could not update todo' }, status: :unprocessable_entity)
+            app_response(message: 'failed', error: { info: 'something went wrong. could not update todo' }, data: todo.errors, status: :unprocessable_entity)
         end
     end
 
