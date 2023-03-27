@@ -1,24 +1,47 @@
-# README
+# TaskTrain
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- This is a simple database application that allows users to create and manage their tasks. The application has a frontend built with React and a backend built with Ruby on Rails.
 
-Things you may want to cover:
+## User Story
 
-* Ruby version
+- As a user, I can view a list of todos.
+- As a user, I can create a new todo.
+- As a user, I can edit an existing todo.
+- As a user, I can delete a task.
 
-* System dependencies
+## Running the Application
 
-* Configuration
+- Rails, is a server-side web application framework, a model–view–controller framework, providing default structures for a database, a web service, and web pages.
+- To run the backend, navigate to the server directory and run the following commands:
 
-* Database creation
+        -   bundle install
+        -   rails s 
 
-* Database initialization
+- The backend will be available at [http://localhost:3000](http://localhost:3000) on your local machine.
 
-* How to run the test suite
+## Development Requirements
 
-* Services (job queues, cache servers, search engines, etc.)
+- Visual Studio Code
+- CORS middleware to enable cross-origin requests
 
-* Deployment instructions
+## Installation
 
-* ...
+- To use this repository on your machine do the following simple steps:
+
+  - Open a terminal / command line interface on your computer.
+
+  - Clone the repo by using the following to create a copy on your local machine:
+
+            git@github.com:Musyoki-Wambua/TaskTrain.git
+
+  - Change directory to the repo folder:
+
+            cd TaskTrain
+
+  - (Optional) Open it in Visual Studio Code:
+
+            code .
+
+## Author
+
+[Joseph Wambua](https://github.com/Musyoki-Wambua)

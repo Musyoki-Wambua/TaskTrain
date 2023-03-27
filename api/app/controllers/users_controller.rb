@@ -12,6 +12,16 @@ class UsersController < ApplicationController
         end
     end
 
+    # def login        
+    #     user = User.find_by(email: params[:email])
+    #     if user&.authenticate(user_params[:password])
+    #         session[:uid] = user.id
+    #         app_response(message: 'Login was successful', status: :ok, data: user)
+    #     else
+    #         app_response(message: 'Invalid username/email or password', status: :unauthorized)
+    #     end
+    # end
+
     def login
         sql = "username = :username OR email = :email"
         user = User.where(sql, { username: user_params[:username], email: user_params[:email] }).first

@@ -18,9 +18,17 @@ require "action_cable/engine"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
 module Api
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    # config.action_dispatch.default_headers = { 'Access-Control-Allow-Origin' => 'http://localhost:4000' }
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options]
+      end
+    end
     config.load_defaults 7.0
 
     #cookies and session
